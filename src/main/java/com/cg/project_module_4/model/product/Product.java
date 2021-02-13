@@ -10,21 +10,21 @@ public class Product {
     private String id;
     private String name;
     @ManyToOne
-    @JoinColumn(name="size_id")
-    private Size size_id;
+    @JoinColumn(name="size_id",referencedColumnName = "id")
+    private Size size;
     private String desc;
     private long price;
     @ManyToOne
-    @JoinColumn(name="category_id")
+    @JoinColumn(name="category_id",referencedColumnName = "id")
     private Category category;
 
     public Product() {
     }
 
-    public Product(String id, String name, Size size_id, String desc, long price, Category category) {
+    public Product(String id, String name, Size size, String desc, long price, Category category) {
         this.id = id;
         this.name = name;
-        this.size_id = size_id;
+        this.size = size;
         this.desc = desc;
         this.price = price;
         this.category = category;
@@ -47,11 +47,11 @@ public class Product {
     }
 
     public Size getSize_id() {
-        return size_id;
+        return size;
     }
 
     public void setSize_id(Size size_id) {
-        this.size_id = size_id;
+        this.size = size_id;
     }
 
     public String getDesc() {
