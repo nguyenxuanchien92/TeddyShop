@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Size {
     @Id
     private String id;
+    @Column(unique = true)
     private String name;
 
     public Size() {
