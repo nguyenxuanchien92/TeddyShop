@@ -1,19 +1,18 @@
-package com.cg.project_module_4.cuc.model;
+package com.cg.project_module_4.model.product;
 
 import javax.persistence.*;
 
 @Entity
 @Table
-public class Category {
+public class Size {
     @Id
     private String id;
-    @Column(unique = true)
     private String name;
 
-    public Category() {
+    public Size() {
     }
 
-    public Category(String id, String name) {
+    public Size(String id, String name) {
         this.id = id;
         this.name = name;
     }

@@ -1,4 +1,4 @@
-package com.cg.project_module_4.cuc.model;
+package com.cg.project_module_4.model.product;
 
 import javax.persistence.*;
 import javax.persistence.Table;
