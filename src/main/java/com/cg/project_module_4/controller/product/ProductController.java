@@ -53,7 +53,7 @@ public class ProductController {
         System.out.println(s);
 
         if(s.isPresent()){
-            products = productService.findAllByName(s.get(), pageable);
+            products = productService.findAllByNameContaining(s.get(), pageable);
         } else {
             products = productService.findAll(pageable);
         }
@@ -82,6 +82,28 @@ public class ProductController {
         ModelAndView modelAndView = new ModelAndView("product/add");
         modelAndView.addObject("product", new Product());
         modelAndView.addObject("message", "New product created successfully");
+        return modelAndView;
+    }
+
+    @GetMapping("/edit/{id}")
+    public ModelAndView showEditForm(@PathVariable String id){
+        Product product = productService.findById(id);
+        if(product != null) {
+            ModelAndView modelAndView = new ModelAndView("product/edit");
+            modelAndView.addObject("product", product);
+            return modelAndView;
+
+        }else {
+            ModelAndView modelAndView = new ModelAndView("error.404");
+            return modelAndView;
+        }
+    }
+    @PostMapping("/save-product")
+    public ModelAndView editProduct (@ModelAttribute("product") Product product){
+        productService.save(product);
+        ModelAndView modelAndView = new ModelAndView("product/edit");
+        modelAndView.addObject("product", product);
+        modelAndView.addObject("message", "Product updated successfully");
         return modelAndView;
     }
 

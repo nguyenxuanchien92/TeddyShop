@@ -10,7 +10,7 @@ public interface ProductRepo extends PagingAndSortingRepository<Product, String>
 
     Iterable<Product> findAllByCategory(Category province);
 
-    Page<Product> findAllByName(String name, Pageable pageable);
+    Page<Product> findAllByNameContaining(String name, Pageable pageable);
 
 
 

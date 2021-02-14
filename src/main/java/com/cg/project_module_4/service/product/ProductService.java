@@ -16,6 +16,6 @@ public interface ProductService {
 
     Iterable<Product> findAllByCategory(Category province);
 
-    Page<Product> findAllByName(String name, Pageable pageable);
+    Page<Product> findAllByNameContaining(String name, Pageable pageable);
 
 }
