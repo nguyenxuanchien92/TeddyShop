@@ -37,29 +37,29 @@
         </tr>
 
         <tr>
-            <td>Desv:</td>
-            <td><input type="text" th:field="*{desv}"/></td>
+            <td>Category:</td>
+            <td>
+                <select th:field="*{category}">
+                    <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Size:</td>
+            <td>
+                <select th:field="*{size}">
+                    <option th:each="s : ${sizes}" th:value="${s.id}" th:text="${s.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Img:</td>
+            <td><input type="text" th:field="*{img}"/></td>
             <!--            <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</td>-->
         </tr>
-<!--        <tr>-->
-<!--            <td>Category:</td>-->
-<!--            <td>-->
-<!--                <select th:field="*{category}">-->
-<!--                    <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>-->
-<!--                </select>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>Province:</td>-->
-<!--            <td>-->
-<!--                <select th:field="*{province}">-->
-<!--                    <option th:each="p : ${provinces}" th:value="${p.id}" th:text="${p.name}"></option>-->
-<!--                </select>-->
-<!--            </td>-->
-<!--        </tr>-->
         <tr>
             <td></td>
-            <td><input type="submit" value="Create customer"></td>
+            <td><input type="submit" value="Create product"></td>
         </tr>
     </table>
 </form>
