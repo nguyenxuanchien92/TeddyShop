@@ -13,7 +13,7 @@ public class LoginController {
 
     @GetMapping("/register-login")
     public ModelAndView showFormRegisterLogin(){
-        ModelAndView mav = new ModelAndView("/views/account/account_register");
+        ModelAndView mav = new ModelAndView("/account/account_register");
 
         return mav;
     }
