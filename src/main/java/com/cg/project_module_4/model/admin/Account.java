@@ -1,8 +1,13 @@
 package com.cg.project_module_4.model.admin;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 @Entity
+@Table(name = "Accounts")
 public class Account {
     @Id
     private String Id;
@@ -10,9 +15,18 @@ public class Account {
     private String passWord;
     private Date createDate;
     private String roleId;
-    @OneToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+
+    @OneToOne(mappedBy = "account")
     private Customer customer;
+
+    public Account(String userName, String passWord, Customer customer) {
+        Id = getRandomId();
+        this.userName = userName;
+        this.passWord = passWord;
+        this.createDate = getCurrentDate();
+        this.roleId = Role.NORMAL;
+        this.customer = customer;
+    }
 
     public String getId() {
         return Id;
@@ -42,17 +56,17 @@ public class Account {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+/*    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
-    }
+    }*/
 
     public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
+//    public void setRoleId(String roleId) {
+//        this.roleId = roleId;
+//    }
 
     public Customer getCustomer() {
         return customer;
@@ -60,5 +74,15 @@ public class Account {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    private String getRandomId() {
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        return "Ac" + timestamp.getTime();
+    }
+
+    private Date getCurrentDate() {
+        LocalDate currentDate = LocalDate.now();
+        return Date.from(currentDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
     }
 }

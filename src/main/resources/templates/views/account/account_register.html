@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+    <link rel="stylesheet" th:href="@{../css/account/register-form.css}">
+
 </head>
 <body>
-
+    <form th:action="@{/login/register}" th:method="post">
+        <div id="title-form">
+            <p>Register Account</p>
+        </div>
+        <div id="content-form">
+            <div id="account-name-label">
+                <label th:for="accountName">Account Name:</label>
+                <input th:type="text" id="accountName" th:name="userName">
+            </div>
+            <div id="pass-word-label">
+                <label th:for="passWord">Pass word:</label>
+                <input th:type="password" id="passWord" th:name="passWord">
+            </div>
+            <div id="first-name-label">
+                <label th:for="firstName">First Name:</label>
+                <input th:type="text" id="firstName" th:name="firstName">
+            </div>
+            <div id="last-name-label">
+                <label th:for="lastName">Last Name:</label>
+                <input th:type="text" id="lastName" th:name="lastName">
+            </div>
+            <div id="address-label">
+                <label th:for="address">Address:</label>
+                <input th:type="text" id="address" th:name="address">
+            </div>
+            <div id="phone-number-label">
+                <label th:for="phoneNumber">Phone Number:</label>
+                <input th:type="text" id="phoneNumber" th:name="phoneNumber">
+            </div>
+            <div id="btn-register-label">
+                <input type="submit" value="Register">
+            </div>
+        </div>
+    </form>
 </body>
 </html>
