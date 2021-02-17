@@ -31,7 +31,7 @@ public class Customer {
         this.firstName = firstName;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.account = account;
+        this.account = account;/
     }
 
     public Account getAccount() {
@@ -92,3 +92,7 @@ public class Customer {
         return Date.from(currentDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
     }
 }
+//Task today
+//tạo date khi đăng ký.
+//chuyển method getRandomId() sang service.
+//thay đổi trạng thái mối quan hệ giữa customer và account thành 1-n

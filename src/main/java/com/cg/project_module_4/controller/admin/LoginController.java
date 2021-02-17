@@ -24,7 +24,7 @@ public class LoginController {
     @GetMapping("/register-login")
     public ModelAndView showFormRegisterLogin() {
         ModelAndView mav = new ModelAndView("/account/account_register");
-        Account  account = new Account();
+        Account account = new Account();
         Customer customer = new Customer();
         mav.addObject("account", account);
         mav.addObject("customer", customer);
