@@ -36,6 +36,7 @@ public class LoginController {
     public ModelAndView registerAccount(@ModelAttribute("account") Account account,
                                         @ModelAttribute("customer") Customer customer) {
         accountService.save(account);
+        customer.setAccount(account);
         customerService.save(customer);
         ModelAndView mav = new ModelAndView("/account/show_list_account", "account", account);
         return mav;

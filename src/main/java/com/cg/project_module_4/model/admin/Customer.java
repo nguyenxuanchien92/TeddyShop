@@ -31,7 +31,7 @@ public class Customer {
         this.firstName = firstName;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.account = account;/
+        this.account = account;
     }
 
     public Account getAccount() {
