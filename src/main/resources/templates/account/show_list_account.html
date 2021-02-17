@@ -13,8 +13,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="a : ${listAccount}">
-        <td th:type="text" th:value="a"/>
+    <tr th:object="${account}">
+        <td th:type="text" th:text="${account.userName}" th:name="${account.userName}"/>
+        <td th:type="text" th:text="${account.passWord}" th:name="${account.passWord}"/>
     </tr>
     </tbody>
 </table>

@@ -1,6 +1,10 @@
 package com.cg.project_module_4.model.admin;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -17,8 +21,12 @@ public class Customer {
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private Account account;
 
-    public Customer(String id, String lastName, String firstName, String address, String phoneNumber, Account account) {
-        this.id = id;
+    public Customer() {
+        this.id = getRandomId();
+    }
+
+    public Customer( String lastName, String firstName, String address, String phoneNumber, Account account) {
+        //this.id = getRandomId();
         this.lastName = lastName;
         this.firstName = firstName;
         this.address = address;
@@ -74,4 +82,13 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
+    private String getRandomId() {
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        return "Cus" + timestamp.getTime();
+    }
+
+    private Date getCurrentDate() {
+        LocalDate currentDate = LocalDate.now();
+        return Date.from(currentDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+    }
 }

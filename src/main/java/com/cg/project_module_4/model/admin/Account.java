@@ -19,12 +19,18 @@ public class Account {
     @OneToOne(mappedBy = "account")
     private Customer customer;
 
-    public Account(String userName, String passWord, Customer customer) {
-        Id = getRandomId();
-        this.userName = userName;
-        this.passWord = passWord;
+    public Account() {
+        this.Id = getRandomId();
         this.createDate = getCurrentDate();
         this.roleId = Role.NORMAL;
+    }
+
+    public Account(String userName, String passWord, Customer customer) {
+        //Id = getRandomId();
+        this.userName = userName;
+        this.passWord = passWord;
+        //this.createDate = getCurrentDate();
+        //this.roleId = Role.NORMAL;
         this.customer = customer;
     }
 
@@ -56,17 +62,17 @@ public class Account {
         return createDate;
     }
 
-/*    public void setCreateDate(Date createDate) {
+   public void setCreateDate(Date createDate) {
         this.createDate = createDate;
-    }*/
+    }
 
     public String getRoleId() {
         return roleId;
     }
 
-//    public void setRoleId(String roleId) {
-//        this.roleId = roleId;
-//    }
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
 
     public Customer getCustomer() {
         return customer;
